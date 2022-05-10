@@ -1,6 +1,7 @@
 package com.generation.blogpessoal.model;
 
 import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,6 +33,10 @@ public class Postagem {
 		
 		@Temporal(TemporalType.TIMESTAMP)
 		private Date date = new java.sql.Date(System.currentTimeMillis());
+		
+		@ManyToOne
+		@JsonIgnoreProperties("postagem")
+		private Usuario usuario;
 		
 		@ManyToOne
 		@JsonIgnoreProperties("postagem")
@@ -69,6 +74,14 @@ public class Postagem {
 			this.date = date;
 		}
 
+		public Usuario getUsuario() {
+			return usuario;
+		}
+
+		public void setUsuario(Usuario usuario) {
+			this.usuario = usuario;
+		}
+
 		public Tema getTema() {
 			return tema;
 		}
@@ -76,8 +89,7 @@ public class Postagem {
 		public void setTema(Tema tema) {
 			this.tema = tema;
 		}
-		
-		
-		
+
+			
 		
 }
