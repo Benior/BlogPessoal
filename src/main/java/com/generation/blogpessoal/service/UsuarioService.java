@@ -17,8 +17,9 @@ public class UsuarioService {
 	
 	@Autowired
 	private UsuarioRepository repository;
+	
 	//função para cadastrar usuario
-	public Optional<Usuario>cadastrUsuario(Usuario usuario){
+	public Optional<Usuario>cadastrarUsuario(Usuario usuario){
 		//valida se tem um usuario igual no db
 		if(repository.findByUsuario(usuario.getUsuario()).isPresent())
 			return Optional.empty();
@@ -28,6 +29,19 @@ public class UsuarioService {
 			return Optional.of(repository.save(usuario));
 		
 	}
+	
+	public Optional<Usuario>atualizarUsuario(Usuario usuario){
+		
+		if (repository.findById(usuario.getId()).isPresent()){
+			
+		usuario.setSenha(criptografarSenha(usuario.getSenha()));
+			
+		return Optional.of(repository.save(usuario));
+		}
+		return Optional.empty();
+		
+	}
+	
 	//função para criptografar a senha digitada pelo usuario
 	private String criptografarSenha(String senha) {
 

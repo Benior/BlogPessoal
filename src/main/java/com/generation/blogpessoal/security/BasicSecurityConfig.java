@@ -17,10 +17,11 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	//serve para comparar os dados do usuário cadastrado no db com o que foi digitado.
 	@Autowired
-	private UserDetailsService userDetailService;
+	private UserDetailsService userDetailsService;
 	
 	@Override //método de usuário de testes da API
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+		auth.userDetailsService(userDetailsService);
 		auth.inMemoryAuthentication()
 		.withUser("root")
 		.password(passwordEncoder().encode("root"))
@@ -37,8 +38,8 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.authorizeRequests() //autorizar o request
-		.antMatchers("/usuarios/logar").permitAll() // permite o acesso a pagina de login de qualquer lugar
-		.antMatchers("/usuarios/cadastrar").permitAll() // permite o acesso a pagina de cadastro de qualquer lugar
+		.antMatchers("/usuario/logar").permitAll() // permite o acesso a pagina de login de qualquer lugar
+		.antMatchers("/usuario/cadastrar").permitAll() // permite o acesso a pagina de cadastro de qualquer lugar
 		.antMatchers(HttpMethod.OPTIONS).permitAll() // Libera quais metodos tenho disponível para usar
 		.anyRequest().authenticated() // vai querer acesso para efetuar alterações
 		.and().httpBasic()
