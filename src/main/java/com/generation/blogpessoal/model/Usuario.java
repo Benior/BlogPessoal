@@ -12,8 +12,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
+import io.swagger.v3.oas.annotations.media.Schema;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 @Table (name= "tb_usuario")
@@ -25,8 +26,9 @@ public class Usuario {
 	@NotBlank
 	private String nome;
 	
-	@NotNull
-	@Email(message = "Aqui deve ser utilizado um e-mail válido")
+	@NotNull(message = "O atributo Usuário é Obrigatório!")
+	@Schema(example = "email@email.com.br")
+	@Email(message = "O atributo Usuário deve ser um email válido!")
 	private String  usuario;
 	
 	@NotNull
