@@ -48,6 +48,10 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 		.and().csrf().disable(); //autoriza o put e delete.
 
 	}
+	
+//	.antMatchers("/**").permitAll()
+//	.antMatchers(HttpMethod.GET ,"/postagens").permitAll()
+//	.antMatchers(HttpMethod.GET ,"/tema").permitAll()
 
 	
 }

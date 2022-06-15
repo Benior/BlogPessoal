@@ -30,13 +30,13 @@ public class UsuarioRepositoryTest {
 	@BeforeAll
 	void start() {
 		
-		repository.save(new Usuario(0L, "Michael Silva", "isadora@gmail.com","51 e pinga","https://i.imgur.com/FETvs2O.jpg"));
+		repository.save(new Usuario(0L, "Michael Silva", "isadora@gmail.com","51 e pinga","https://i.imgur.com/FETvs2O.jpg", "tipo 1"));
 		
-		repository.save(new Usuario(0L, "Mayara Romero", "michaeltrimundial@gmail.com","nunca fui rebaixado","https://i.imgur.com/FETvs2O.jpg"));
+		repository.save(new Usuario(0L, "Mayara Romero", "michaeltrimundial@gmail.com","nunca fui rebaixado","https://i.imgur.com/FETvs2O.jpg", "tipo 1"));
 		
-		repository.save(new Usuario(0L, "Brocco Silva", "broco@hotmail.com","broccolis","https://i.imgur.com/FETvs2O.jpg"));
+		repository.save(new Usuario(0L, "Brocco Silva", "broco@hotmail.com","broccolis","https://i.imgur.com/FETvs2O.jpg", "tipo 1"));
 		
-		repository.save(new Usuario(0L, "Maiar Silva", "will31smith@gmail.com","cenoura","https://i.imgur.com/FETvs2O.jpg"));
+		repository.save(new Usuario(0L, "Maiar Silva", "will31smith@gmail.com","cenoura","https://i.imgur.com/FETvs2O.jpg", "tipo 1"));
 	}
 
 	@Test
